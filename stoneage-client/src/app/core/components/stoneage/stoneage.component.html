@@ -1,0 +1,15 @@
+
+<div class='stoneage'>
+    <ul class='players-list'>
+      <li class='player-name' *ngFor='let player of players' [class.current-player]='currentPlayerId === player[0]'>{{player[1]}}</li>
+    </ul>
+   <app-human-work></app-human-work>
+   <app-cards></app-cards>
+   <app-user-statistic></app-user-statistic>
+</div>
+
+<app-blocking-layer></app-blocking-layer>
+
+<div>
+   <app-chat></app-chat>
+</div>

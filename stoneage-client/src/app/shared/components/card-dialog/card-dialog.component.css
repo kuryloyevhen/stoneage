@@ -1,0 +1,20 @@
+.card-dialog {
+   position: relative;
+}
+
+.btn__dialog {
+   position: absolute;
+   right: -5px;
+   top: -5px;
+   width: 30px;
+   height: 30px;
+   background-color: inherit;
+   outline: none;
+   border: none;
+   padding: 0;
+}
+
+.alert {
+   font-size: 14px;
+   padding: 5px;
+}

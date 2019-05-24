@@ -1,0 +1,60 @@
+<div class="dwelling-dialog">
+   <button class="btn__dialog" mat-dialog-close>
+      <img src="../../../../assets/close.svg" alt="">
+   </button>
+   <div [ngSwitch]="dwelling.type">
+      <div *ngSwitchCase="'standart'">
+         <span>Cost</span><br>
+         <span *ngIf="dwelling.wood">Wood: {{dwelling.wood}}</span>
+         <span *ngIf="dwelling.clay">Clay: {{dwelling.clay}}</span>
+         <span *ngIf="dwelling.stone">Stone: {{dwelling.stone}}</span>
+         <span *ngIf="dwelling.gold">Gold: {{dwelling.gold}}</span>
+         <span>Points: {{dwelling.pointsAmount}}</span>
+         <button class="btn btn-success btn-sm" (click)="countStandartCard()">Take card</button>
+         <span class="alert alert-danger" *ngIf="!permit">Not enough resources</span>
+      </div>
+      <div *ngSwitchCase="'count'">
+         <div *ngIf="dwelling.requiredResourceAmount">
+            <span>Cost: {{dwelling.requiredResourceAmount}} resources</span>
+            <span class="alert alert-warning">Need {{dwelling.differenceRequirement}} different resource</span>
+            <span>Wood: <input type="number" [(ngModel)]="woodAmount" value="0"></span>
+            <span>Clay: <input type="number" [(ngModel)]="clayAmount" value="0"></span>
+            <span>Stone: <input type="number" [(ngModel)]="stoneAmount" value="0"></span>
+            <span>Gold: <input type="number" [(ngModel)]="goldAmount" value="0"></span>
+            <button class="btn btn-success btn-sm" (click)="countFixedCard()">Take dwelling</button>
+            <span class="alert alert-danger" *ngIf="!isRequirementsFulfilled">Requirements to differences doesn't fulfilled</span>
+            <span class="alert alert-danger" *ngIf="!permit">Not enough resources</span>
+         </div>
+         <div *ngIf="!dwelling.requiredResourceAmount">
+            <span>Cost: 1-7 resources</span>
+            <span class="alert alert-warning">All resources must be of the same type</span>
+            <div class="select-form">
+               <mat-form-field>
+                  <mat-label>Select a resource</mat-label>
+                  <mat-select [(value)]="selectedResource">
+                     <mat-option value="wood">Wood</mat-option>
+                     <mat-option value="clay">Clay</mat-option>
+                     <mat-option value="stone">Stone</mat-option>
+                     <mat-option value="gold">Gold</mat-option>
+                  </mat-select>
+               </mat-form-field>
+               <mat-form-field>
+                  <mat-label>Select a resource</mat-label>
+                  <mat-select [(value)]="selectedResourceAmount" (valueChange)="checkAvailability(selectedResource)">
+                     <mat-option value="1">1</mat-option>
+                     <mat-option value="2">2</mat-option>
+                     <mat-option value="3">3</mat-option>
+                     <mat-option value="4">4</mat-option>
+                     <mat-option value="5">5</mat-option>
+                     <mat-option value="6">6</mat-option>
+                     <mat-option value="7">7</mat-option>
+                  </mat-select>
+               </mat-form-field>
+            </div>
+            <button class="btn btn-success btn-sm" (click)="countRandomResource()">Take card</button>
+            <span class="alert alert-danger" *ngIf="!permit">Not enough available resources</span>
+            
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,15 @@
+
+.cards {
+   display: flex;
+   flex-flow: column;
+   align-content: space-between;
+   position: relative;
+   z-index: 1;
+   padding: 10px 20px;
+   height: 100%;
+}
+
+.phase {
+   z-index: 3;
+   background-color: #dcedc8;
+}

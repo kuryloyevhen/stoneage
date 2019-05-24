@@ -1,0 +1,13 @@
+
+<div class='chat'>
+  <span class='title'>Game chat</span>
+   <div class='chat-panel'>
+      <textarea name="chat" cols="30" rows="1" class='text-area' [(ngModel)]='message'></textarea>
+      <button type='button' class='btn btn-success' (click)='sendMessage()'>Send</button>
+   </div>
+   <div class='messages'>
+      <ul class='message-list'>
+         <li class='message' *ngFor='let message of messages'>{{message}}</li>
+      </ul>
+   </div>
+</div>

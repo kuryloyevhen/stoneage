@@ -1,0 +1,10 @@
+
+.dwellings {
+   display: flex;
+   flex-flow: row nowrap;
+}
+
+.dwelling-card {
+   margin-right: 10px;
+   margin-bottom: 20px;
+}

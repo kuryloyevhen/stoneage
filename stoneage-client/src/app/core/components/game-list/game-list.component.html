@@ -1,0 +1,63 @@
+
+<div class='game-list'>
+      <div class='game-table'>
+            <button class='btn--close' [mat-dialog-close]='true'>
+               <img class='btn-icon' src="../../../../assets/close.svg" alt="Close list">
+            </button>
+            <mat-table [dataSource]='rooms'>
+               <ng-container matColumnDef='name'>
+                  <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                  <mat-cell *matCellDef='let room'>{{room.name}}</mat-cell>
+               </ng-container>
+               <ng-container matColumnDef='join'>
+                     <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                     <mat-cell *matCellDef='let room'>
+                           <button mat-raised-button color='primary' (click)='joinToGame(room.name)'>Join</button>
+                     </mat-cell>
+               </ng-container>
+               <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
+               <mat-row *matRowDef='let row; columns: displayedColumns'></mat-row>
+            </mat-table>
+            <mat-paginator [length]='rooms?.length' [pageSize]='3' [pageSizeOptions]='[3]'></mat-paginator>
+         </div>
+         <div class='creating-game'>
+            <mat-expansion-panel>
+               <mat-expansion-panel-header>
+                  <mat-panel-title>Create new game</mat-panel-title>
+               </mat-expansion-panel-header>
+               <div class='creating-game__form' [formGroup]='roomForm'>
+                  <mat-form-field>
+                     <input class='room-name' type="text" matInput placeholder="Room name" formControlName='name'>
+                  </mat-form-field>
+                  <button type='button' class='btn btn-success btn-sm' (click)='createGame()'>Create</button>
+               </div>
+            </mat-expansion-panel>
+         </div>
+</div>
+
+
+
+<!--
+<div class='game-list'>
+   
+   <table class='table'>
+      <thead>
+         <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Name</th>
+            <th scope='col'></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor='let room of rooms; index as i'>
+            <th scope='row'>{{i + 1}}</th>
+            <th scope='row'>{{room.name}}</th>
+            <th scope='row'><button mat-raised-button color='primary' (click)='joinToGame(room.name)'>Join</button></th>
+         </tr>
+      </tbody>
+   </table>
+   
+   
+   
+</div>
+-->

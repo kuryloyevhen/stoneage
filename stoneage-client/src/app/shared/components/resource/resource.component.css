@@ -1,0 +1,27 @@
+
+.resource-kind {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.resource {
+   margin-bottom: 15px;
+}
+
+.options {
+   display: flex;
+   flex-flow: row nowrap;
+}
+
+.human-place {
+   widows: 30px;
+   height: 30px;
+}
+
+.human-place:hover {
+   background-color: brown;
+}
+
+.checked {
+   background-color: brown;
+}

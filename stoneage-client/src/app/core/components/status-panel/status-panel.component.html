@@ -1,0 +1,17 @@
+
+<div class='status-panel'>
+   <div class='timer' *ngIf = 'isPlaying'>
+      <span>Time for move:&#8195;</span>
+      <span class='badge badge-warning'>60s</span>
+   </div>
+   <span class='title h2'>Stoneage</span>
+   <div class='login btn-group' *ngIf='!isAuthorized'>
+      <button type ='button' class='btn btn-primary' (click)='openLoginDialog()'>Login</button>
+      <button type='button' class='btn btn-secondary' (click)='openRegisterForm()'>Register</button>
+   </div>
+   <div class=game-entry *ngIf='isAuthorized'>
+      <button type='button' class='btn btn-primary' (click)='openGameList()' *ngIf='!isPlaying'>Play</button>
+      <button type='button' class='btn btn-danger' (click)='logout()'>Logout</button>
+      <span class='user-name'>{{user?.name}}</span>
+   </div>
+</div>

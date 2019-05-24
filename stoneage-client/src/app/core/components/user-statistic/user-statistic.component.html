@@ -1,0 +1,126 @@
+
+<div class='user-statistic' [class.phase]="currentPhase === 'return'">
+   <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Resource name</th>
+          <th scope="col">Amount</th>
+          <th scope="col"></th>
+          <th scope='col'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Food</th>
+          <td>{{player.food}}</td>
+          <td>
+            <button type='button' class='btn btn-sm'  data-name='food' 
+            (click)="countResource('food', 2)" [disabled]='isDisabled.food' [class.btn-outline-primary]="!isDisabled.food">
+            Count
+            </button>
+          </td>
+        </tr>
+        <tr>
+         <th scope="row">Wood</th>
+         <td>{{player.wood}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='wood' 
+           (click)="preliminaryResourceCounting('wood', 3, woodCounter)" [disabled]='isDisabled.wood' [class.btn-outline-primary]="!isDisabled.wood">
+           Count
+           </button>
+         </td>
+         <td>
+            <div class="counter counter--hidden" #woodCounter>
+              <span class="count-formula">{{mockResult}}/3 = {{receivedResources}}</span>
+              <input class='work-tools-field' type="number" step='1' min='0' max={{maxWorkTools}} #additionWood (input)="recountResource(3, additionWood.value)">
+              <button class="btn btn-success btn-sm" (click)="countResource('wood', additionWood, woodCounter)">Take resources</button>
+            </div>
+          </td>
+       </tr>
+       <tr>
+         <th scope="row">Clay</th>
+         <td>{{player.clay}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='clay' 
+           (click)="preliminaryResourceCounting('clay', 4, clayCounter)" [disabled]='isDisabled.clay' [class.btn-outline-primary]="!isDisabled.clay">
+           Count
+           </button>
+         </td>
+         <td>
+          <div class="counter counter--hidden" #clayCounter>
+            <span class="count-formula">{{mockResult}}/4 = {{receivedResources}}</span>
+            <input class='work-tools-field' type="number" step='1' min='0' max={{maxWorkTools}} #additionClay (input)="recountResource(4, additionClay.value)">
+            <button class="btn btn-success btn-sm" (click)="countResource('clay', additionClay, clayCounter)">Take resources</button>
+          </div>
+        </td>
+       </tr>
+       <tr>
+         <th scope="row">Stone</th>
+         <td>{{player.stone}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='stone' 
+           (click)="preliminaryResourceCounting('stone', 5, stoneCounter)" [disabled]='isDisabled.stone' [class.btn-outline-primary]="!isDisabled.stone">
+           Count
+           </button>
+         </td>
+         <td>
+          <div class="counter counter--hidden" #stoneCounter>
+            <span class="count-formula">{{mockResult}}/5 = {{receivedResources}}</span>
+            <input class='work-tools-field' type="number" step='1' min='0' max={{maxWorkTools}} #additionStone (input)="recountResource(5, additionStone.value)">
+            <button class="btn btn-success btn-sm" (click)="countResource('stone', additionStone, stoneCounter)">Take resources</button>
+          </div>
+        </td>
+       </tr>
+       <tr>
+         <th scope="row">Gold</th>
+         <td>{{player.gold}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='gold' 
+           (click)="preliminaryResourceCounting('gold', 6, goldCounter)" [disabled]='isDisabled.gold' [class.btn-outline-primary]="!isDisabled.gold">
+           Count
+           </button>
+         </td>
+         <td>
+          <div class="counter counter--hidden" #goldCounter>
+            <span class="count-formula">{{mockResult}}/6 = {{receivedResources}}</span>
+            <input class='work-tools-field' type="number" step='1' min='0' max={{maxWorkTools}} #additionGold (input)="recountResource(6, additionGold.value)">
+            <button class="btn btn-success btn-sm" (click)="countResource('gold', additionGold, goldCounter)">Take resources</button>
+          </div>
+        </td>
+       </tr>
+       <tr>
+         <th scope="row">Population</th>
+         <td>{{player.population}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='population' 
+           (click)="countResource('population', null)" [disabled]='isDisabled.population' [class.btn-outline-primary]="!isDisabled.population">
+           Count
+           </button>
+         </td>
+       </tr>
+       <tr>
+         <th scope="row">Agronomy</th>
+         <td>{{player.agronomy}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='agronomy' 
+           (click)="countResource('agronomy', null)" [disabled]='isDisabled.agronomy' [class.btn-outline-primary]="!isDisabled.agronomy">
+           Count
+           </button>
+         </td>
+       </tr>
+       <tr>
+         <th scope="row">Work tools</th>
+         <td>{{mockSmithy}}</td>
+         <td>
+           <button type='button' class='btn btn-sm'  data-name='smithy' 
+           (click)="countResource('smithy', null)" [disabled]='isDisabled.smithy' [class.btn-outline-primary]="!isDisabled.smithy">
+           Count
+           </button>
+         </td>
+       </tr>
+      </tbody>
+      <button class="btn btn-success btn-sm feed-btn" (click)='sendChanges()'>Feed people</button>
+    </table>
+   <div class='cards'>
+   </div>
+</div>

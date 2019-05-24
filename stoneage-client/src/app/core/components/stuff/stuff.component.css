@@ -1,0 +1,6 @@
+
+.stuff {
+   display: flex;
+   flex-direction: column;
+   background-color: inherit;
+}

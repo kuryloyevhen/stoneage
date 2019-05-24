@@ -1,0 +1,15 @@
+
+.login-dialog {
+   display: flex;
+   flex-direction: column;
+}
+
+.btn-group {
+   display: flex;
+   flex-flow: row nowrap;
+   width: 100%;
+}
+
+.btn {
+   flex: 0 0 50%;
+}

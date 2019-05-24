@@ -1,0 +1,13 @@
+
+.human-work {
+   display: flex;
+   flex-flow: column;
+   padding: 10px 20px;
+   position: relative;
+   z-index: 1;
+}
+
+.phase {
+   z-index: 3;
+   background-color: #dcedc8;
+}

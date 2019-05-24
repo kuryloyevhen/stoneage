@@ -1,0 +1,9 @@
+
+.civilization-cards {
+   display: flex;
+   flex-flow: row nowrap;
+}
+
+.civilization-card {
+   margin-right: 10px;
+}

@@ -1,0 +1,16 @@
+<div class="card">
+   <div>
+      <span class="cost"></span>
+   </div>
+   <div>
+      <img class="human-place" src="../../../../assets/human.svg" alt="" (click)="checkCard(card.id)">
+   </div>
+   <div class="body">
+      <span>Card</span><br>
+      <span>Card id: {{card?.id}}</span><br>
+      <span>Card type: {{card?.instantType}}</span><br>
+   </div>
+   <div>
+      <button class="btn btn-success btn-sm" (click)="takeCard()">Take card</button>
+   </div>
+</div>

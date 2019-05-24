@@ -1,0 +1,78 @@
+<div class="card-dialog">
+   <button class="btn__dialog" mat-dialog-close>
+      <img src="../../../../assets/close.svg" alt="">
+   </button>
+   <div class="select">
+      <mat-form-field>
+         <mat-label>Select a resource</mat-label>
+         <mat-select [(value)]="selectedResourceToPay" (valueChange)="checkAvailableResources()">
+            <mat-option value="wood">Wood</mat-option>
+            <mat-option value="clay">Clay</mat-option>
+            <mat-option value="stone">Stone</mat-option>
+            <mat-option value="gold">Gold</mat-option>
+         </mat-select>
+      </mat-form-field>
+      <span>X {{amount}}</span>
+   </div>
+   <span class="alert alert-danger" *ngIf="!available">Not enough selected resources!</span>
+   <div class="" [ngSwitch]="card.instantType">
+      <div *ngSwitchCase="'random'">
+         <button class="btn btn-success btn-sm" (click)="rollTheDice(null)">Roll the dice</button>
+         <ul>
+            <li *ngFor="let item of resultsOfRollTheDice">
+               <span class="random-option">{{randomOtions[item]}}</span> 
+               <button class="btn btn-success btn-sm" (click)="takeRandomResource(randomOtions[item])">Take</button>
+            </li>
+         </ul>
+      </div>
+
+      <div *ngSwitchCase="'resource'" [ngSwitch]="card.instantSubtype">
+         <div *ngSwitchCase="'any'">
+            <mat-form-field>
+               <mat-label>Select a resource</mat-label>
+               <mat-select [(value)]="selectedResourceToTake">
+                  <mat-option value="wood">Wood</mat-option>
+                  <mat-option value="clay">Clay</mat-option>
+                  <mat-option value="stone">Stone</mat-option>
+                  <mat-option value="gold">Gold</mat-option>
+               </mat-select>
+            </mat-form-field>
+            <span>Amount: {{card.instantAmount}}</span>
+            <button class="btn btn-success btn-sm" (click)="countResource('selected')">Take card</button>
+         </div>
+         <div *ngSwitchDefault>
+            <span>Reource: {{card.instantSubtype}}</span><br>
+            <span>Amount: {{card.instantAmount}}</span><br>
+            <button class="btn btn-success btn-sm" (click)="countResource(null)">Take cad</button>
+         </div>
+      </div>
+
+      <div *ngSwitchCase="'dice'">
+         <span>Resource: {{card.instantSubtype}}</span><br>
+         <span>Amount: {{countedResourceAmount}}</span>
+         <button class="btn btn-success btn-sm" (click)="rollTheDice()">Roll the dice</button><br>
+         <button class="btn btn-success btn-sm" (click)="countResource('dice')" [disabled]="resultOfRollTheDice">Take card</button>
+      </div>
+
+      <div *ngSwitchCase="'tools'">
+         <span>Resource: {{card.instantType}}</span>
+         <span>Type: {{card.instantSubtype}}</span>
+         <button class="btn btn-success btn-sm" (click)="takeTool()">Take card</button>
+      </div>
+
+      <div *ngSwitchCase="'points'">
+         <span>Resource: {{card.instantType}}</span>
+         <span>Amount: {{card.instantAmount}}</span>
+         <button class="btn btn-success btn-sm" (click)="takePoints()"></button>
+      </div>
+      <div *ngSwitchCase="'card'">
+
+      </div>
+      <div *ngSwitchCase="'agronomy'">
+         <span>Resource: {{card.instantType}}</span>
+         <span>Type: {{card.instantSubtype}}</span>
+         <button class="btn btn-success btn-sm" (click)="takeAgronomy()">Take card</button>
+      </div>
+   </div>
+</div>
+

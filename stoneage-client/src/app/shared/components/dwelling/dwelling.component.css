@@ -1,0 +1,24 @@
+
+.body {
+   height: 150px;
+   width: 100px;
+   border: 2px solid #000;
+   border-radius: 10px;
+}
+
+.human-place {
+   width: 30px;
+   height: 30px;
+}
+
+.dwelling {
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   justify-content: space-between;
+   height: 240px;
+}
+
+.checked {
+   background-color: brown;
+}

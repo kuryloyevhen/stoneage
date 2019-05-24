@@ -1,0 +1,25 @@
+
+.stoneage {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: flex-start;
+   width: 100%;
+}
+
+.player-name {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.players-list {
+  position: fixed;
+  z-index: 4;
+  top: 50px;
+  right: 0;
+  height: 30px;
+  box-shadow: 5px 0 5px #000, 0 5px 5px #000;
+}
+
+.current-player {
+  color: green;
+}
